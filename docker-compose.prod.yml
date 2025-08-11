@@ -1,0 +1,14 @@
+services:
+  payload:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+        - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+        - DATABASE_URI=${DATABASE_URI}
+        - CRON_SECRET=${CRON_SECRET}
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
