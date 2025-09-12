@@ -51,6 +51,7 @@
   # Copiar archivos compilados de la etapa de build
   COPY --from=builder /app/.next ./.next
   COPY --from=builder /app/package.json ./
+  COPY --from=builder /app/payload.config.ts ./
   
   # Puerto de Next.js
   EXPOSE 3000
