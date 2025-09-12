@@ -52,6 +52,7 @@
   COPY --from=builder /app/.next ./.next
   COPY --from=builder /app/package.json ./
   COPY --from=builder /app/payload.config.ts ./
+  COPY --from=builder /app/tsconfig.json ./
   
   # Puerto de Next.js
   EXPOSE 3000
