@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Bienvenido a tu nuevo proyecto.",
+    "titleWithUser": "Bienvenido de nuevo, {email}",
+    "goToAdmin": "Ir al panel de administración",
+    "documentation": "Documentación",
+    "updatePage": "Actualiza esta página editando"
+  },
+  "metadata": {
+    "title": "Plantilla en Blanco de Payload",
+    "description": "Una plantilla en blanco usando Payload en una app de Next.js."
+  }
+}
