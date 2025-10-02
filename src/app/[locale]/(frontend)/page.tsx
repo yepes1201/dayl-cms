@@ -2,11 +2,13 @@ import { headers as getHeaders } from 'next/headers.js'
 import Image from 'next/image'
 import { getPayload } from 'payload'
 import React from 'react'
+import { MoveRight } from 'lucide-react'
 import { fileURLToPath } from 'url'
 import { getTranslations } from 'next-intl/server'
 
 import config from '@/payload.config'
 import './styles.css'
+import { Button } from '@/components/ui/button'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -18,44 +20,24 @@ export default async function HomePage() {
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div className="home">
-      <div className="content">
-        <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
-        </picture>
-        {!user && <h1>{t('title')}</h1>}
-        {user && <h1>{t('titleWithUser', { email: user.email })}</h1>}
-        <div className="links">
-          <a
-            className="admin"
-            href={payloadConfig.routes.admin}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {t('goToAdmin')}
-          </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {t('documentation')}
-          </a>
-        </div>
-      </div>
-      <div className="footer">
-        <p>{t('updatePage')}</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/[locale]/(frontend)/page.tsx</code>
-        </a>
-      </div>
-    </div>
+    <>
+      <section id="hero" className="p-4">
+        <h1 className="text-8xl font-normal">Daniel Yepes</h1>
+        <h2 className="text-4xl font-normal">Software Engineer</h2>
+        <p className="text-lg font-normal">
+          I'm a software engineer with a passion for building web applications that are both
+          functional and aesthetically pleasing.
+        </p>
+        <Button>Contact me</Button>
+      </section>
+      <section id="about-me" className="rounded-t-4xl px-4 py-[56px] flex flex-col gap-6">
+        <p className="max-w-[600px] text-xl font-normal">
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Primis cursus ornare scelerisque
+          libero aenean dignissim diam. Nec maecenas ridiculus duis varius pharetra, quam montes
+          sagittis.
+        </p>
+        <Button icon={<MoveRight className=" w-5 h-5" />}>Acerca de mi</Button>
+      </section>
+    </>
   )
 }
